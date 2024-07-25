@@ -1,12 +1,3 @@
-<p align="center"><a href="https://kitchentrackpro.com" target="_blank"><img src="/mnt/data/logo.png" width="400" alt="Kitchen Track Pro Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/your-repo/kitchen-track-pro/actions"><img src="https://github.com/your-repo/kitchen-track-pro/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/your-package/kitchen-track-pro"><img src="https://img.shields.io/packagist/dt/your-package/kitchen-track-pro" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/your-package/kitchen-track-pro"><img src="https://img.shields.io/packagist/v/your-package/kitchen-track-pro" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/your-package/kitchen-track-pro"><img src="https://img.shields.io/packagist/l/your-package/kitchen-track-pro" alt="License"></a>
-</p>
-
 ## About Kitchen Track Pro
 
 Kitchen Track Pro is a comprehensive kitchen management application built using Laravel 11 and Filament PHP 3.2. It is designed to streamline kitchen operations, manage inventory, track orders, and optimize workflow for kitchens of all sizes. This application leverages the power of Laravel's robust framework and Filament's intuitive PHP components to deliver an efficient and user-friendly experience.
