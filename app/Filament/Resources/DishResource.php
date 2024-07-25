@@ -60,7 +60,7 @@ class DishResource extends Resource
                     ->searchable(),
                 TextColumn::make('updated_at')
                     ->label('Updated On')
-                    ->date(),
+                    ->dateTime(),
             ])
             ->filters([
                 //
