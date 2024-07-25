@@ -129,8 +129,3 @@ For any questions or feedback, please contact us at [support@kitchentrackpro.com
 ---
 
 Thank you for using Kitchen Track Pro! We hope it makes your kitchen management tasks easier and more efficient.
-
-```
-
-You can copy and paste the above content into your `README.md` file.
-```
