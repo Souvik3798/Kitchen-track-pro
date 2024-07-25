@@ -1,5 +1,4 @@
-````markdown
-<p align="center"><a href="https://kitchentrackpro.com" target="_blank"><img src="https://drive.google.com/file/d/17yOvlVOUbbm7I3tBi88_jloURxdrkv4y/view?usp=drive_link" width="400" alt="Kitchen Track Pro Logo"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://drive.google.com/file/d/17yOvlVOUbbm7I3tBi88_jloURxdrkv4y/view?usp=drive_link" width="400" alt="Kitchen Track Pro Logo"></a></p>
 
 <p align="center">
 <a href="https://github.com/your-repo/kitchen-track-pro/actions"><img src="https://github.com/your-repo/kitchen-track-pro/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -60,11 +59,11 @@ Before you begin, ensure you have met the following requirements:
 ### Steps
 
 1. **Clone the Repository**
+
     ```bash
     git clone https://github.com/your-repo/kitchen-track-pro.git
     cd kitchen-track-pro
     ```
-````
 
 2. **Install Dependencies**
 
