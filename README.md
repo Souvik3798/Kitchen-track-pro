@@ -1,3 +1,13 @@
+````markdown
+<p align="center"><a href="https://kitchentrackpro.com" target="_blank"><img src="https://drive.google.com/file/d/17yOvlVOUbbm7I3tBi88_jloURxdrkv4y/view?usp=drive_link" width="400" alt="Kitchen Track Pro Logo"></a></p>
+
+<p align="center">
+<a href="https://github.com/your-repo/kitchen-track-pro/actions"><img src="https://github.com/your-repo/kitchen-track-pro/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/your-package/kitchen-track-pro"><img src="https://img.shields.io/packagist/dt/your-package/kitchen-track-pro" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/your-package/kitchen-track-pro"><img src="https://img.shields.io/packagist/v/your-package/kitchen-track-pro" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/your-package/kitchen-track-pro"><img src="https://img.shields.io/packagist/l/your-package/kitchen-track-pro" alt="License"></a>
+</p>
+
 ## About Kitchen Track Pro
 
 Kitchen Track Pro is a comprehensive kitchen management application built using Laravel 11 and Filament PHP 3.2. It is designed to streamline kitchen operations, manage inventory, track orders, and optimize workflow for kitchens of all sizes. This application leverages the power of Laravel's robust framework and Filament's intuitive PHP components to deliver an efficient and user-friendly experience.
@@ -50,60 +60,77 @@ Before you begin, ensure you have met the following requirements:
 ### Steps
 
 1. **Clone the Repository**
-
     ```bash
     git clone https://github.com/your-repo/kitchen-track-pro.git
     cd kitchen-track-pro
     ```
+````
 
-    Install Dependencies
+2. **Install Dependencies**
 
-bash
-Copy code
-composer install
-npm install
-npm run dev
-Environment Configuration
+    ```bash
+    composer install
+    npm install
+    npm run dev
+    ```
 
-Copy the .env.example file to .env:
-bash
-Copy code
-cp .env.example .env
-Update the .env file with your database and other configuration details.
-Generate Application Key
+3. **Environment Configuration**
 
-bash
-Copy code
-php artisan key:generate
-Run Migrations
+    - Copy the `.env.example` file to `.env`:
+        ```bash
+        cp .env.example .env
+        ```
+    - Update the `.env` file with your database and other configuration details.
 
-bash
-Copy code
-php artisan migrate
-Seed the Database (Optional)
+4. **Generate Application Key**
 
-bash
-Copy code
-php artisan db:seed
-Serve the Application
+    ```bash
+    php artisan key:generate
+    ```
 
-bash
-Copy code
-php artisan serve
-You can now access the application at http://localhost:8000.
+5. **Run Migrations**
 
-Contributing
+    ```bash
+    php artisan migrate
+    ```
+
+6. **Seed the Database (Optional)**
+
+    ```bash
+    php artisan db:seed
+    ```
+
+7. **Serve the Application**
+
+    ```bash
+    php artisan serve
+    ```
+
+    You can now access the application at `http://localhost:8000`.
+
+## Contributing
+
 Contributions are welcome! Please follow these steps to contribute:
 
-Fork the repository.
-Create a new branch (git checkout -b feature-branch).
-Make your changes and commit them (git commit -m 'Add some feature').
-Push to the branch (git push origin feature-branch).
-Create a pull request.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a pull request.
 
-Contact
-For any questions or feedback, please contact us at support@kitchentrackpro.com.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any questions or feedback, please contact us at [support@kitchentrackpro.com](mailto:support@kitchentrackpro.com).
+
+---
 
 Thank you for using Kitchen Track Pro! We hope it makes your kitchen management tasks easier and more efficient.
+
+```
+
+You can copy and paste the above content into your `README.md` file.
+```
