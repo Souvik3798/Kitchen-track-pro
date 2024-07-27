@@ -82,7 +82,7 @@ class EditSale extends EditRecord
         $sales = $record->dish;
         logger($sales);
         foreach ($sales as $sale) {
-            $dishes = Dish::findorfail($sale['dish_id']);
+            $dishes = dish::findorfail($sale['dish_id']);
             logger($dishes);
 
             foreach ($dishes['items'] as $items) {
@@ -93,7 +93,7 @@ class EditSale extends EditRecord
                 logger($item);
             }
         }
-        $sale = Sale::findorfail($record->id);
+        $sale = sale::findorfail($record->id);
         $sale->delete();
         $this->redirect(route('filament.admin.resources.sales.index'));
     }

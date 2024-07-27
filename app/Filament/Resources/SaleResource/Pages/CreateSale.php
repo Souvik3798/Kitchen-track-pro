@@ -21,7 +21,7 @@ class CreateSale extends CreateRecord
             logger($dishes);
 
             foreach ($dishes['items'] as $items) {
-                $item = item::findorfail($items['item_id']);
+                $item = Item::findorfail($items['item_id']);
                 $item->update([
                     'quantity' => $item->quantity - $items['quantity'] * $sale['quantity'],
                 ]);
