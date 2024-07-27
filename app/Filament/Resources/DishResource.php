@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\DishResource\Pages;
 use App\Filament\Resources\DishResource\RelationManagers;
-use App\Models\Dish;
+use App\Models\dish;
 use App\Models\Item;
 use Filament\Forms;
 use Filament\Forms\Components\Repeater;

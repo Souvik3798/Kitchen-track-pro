@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\InventoryResource\Pages;
 use App\Filament\Resources\InventoryResource\RelationManagers;
-use App\Models\Inventory;
+use App\Models\inventory;
 use App\Models\Item;
 use Filament\Forms;
 use Filament\Forms\Components\Repeater;

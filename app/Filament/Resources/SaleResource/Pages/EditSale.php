@@ -3,9 +3,9 @@
 namespace App\Filament\Resources\SaleResource\Pages;
 
 use App\Filament\Resources\SaleResource;
-use App\Models\Dish;
+use App\Models\dish;
 use App\Models\Item;
-use App\Models\Sale;
+use App\Models\sale;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Filament\Actions\Action;
