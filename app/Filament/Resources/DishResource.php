@@ -66,7 +66,7 @@ class DishResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->dateTime(),
-            ])
+            ])->defaultSort('updated_at', 'desc')
             ->filters([
                 //
             ])
