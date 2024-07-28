@@ -46,6 +46,8 @@ class InventoryResource extends Resource
                             ->preload()
                             ->searchable()
                             ->required(),
+                        Hidden::make('user_id')
+                            ->default(auth()->id()),
                         Forms\Components\TextInput::make('quantity')
                             ->label('Quantity')
                             ->suffix('grams')
