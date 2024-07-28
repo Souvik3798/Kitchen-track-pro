@@ -71,6 +71,7 @@ class SaleResource extends Resource
                     ->label('Updated On')
                     ->searchable()
                     ->sortable()
+                    ->defaultSort('desc')
                     ->dateTime(),
             ])
             ->filters([

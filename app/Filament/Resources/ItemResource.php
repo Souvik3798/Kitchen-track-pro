@@ -57,6 +57,7 @@ class ItemResource extends Resource
                     ->label('Updated On')
                     ->searchable()
                     ->sortable()
+                    ->defaultSort('desc')
                     ->dateTime(),
             ])
             ->filters([
