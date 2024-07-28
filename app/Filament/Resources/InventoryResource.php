@@ -81,7 +81,6 @@ class InventoryResource extends Resource
                 TextColumn::make('updated_at')
                     ->label('Updated On')
                     ->searchable()
-                    ->defaultSort('desc')
                     ->sortable()
                     ->dateTime(),
             ])
