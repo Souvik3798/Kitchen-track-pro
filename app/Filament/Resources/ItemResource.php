@@ -37,7 +37,6 @@ class ItemResource extends Resource
                     ->default(auth()->id()),
                 TextInput::make('quantity')
                     ->suffix('grams')
-                    ->disabled()
                     ->numeric()
                     ->maxLength(255),
             ]);
