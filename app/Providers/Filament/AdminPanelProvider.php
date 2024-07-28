@@ -27,7 +27,6 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->brandLogo(asset('images/logo.png'))
-            ->title('Kitchentrackpro')
             ->brandLogoHeight('3.5rem')
             ->profile()
             ->login()
