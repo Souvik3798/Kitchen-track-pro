@@ -7,6 +7,7 @@ use App\Filament\Resources\SaleResource\RelationManagers;
 use App\Models\dish;
 use App\Models\sale;
 use Filament\Forms;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -33,6 +34,8 @@ class SaleResource extends Resource
                 TextInput::make('customer')
                     ->required()
                     ->maxLength(255),
+                Hidden::make('user_id')
+                    ->default(auth()->id()),
                 Repeater::make('dish')
                     ->schema([
                         Select::make('dish_id')

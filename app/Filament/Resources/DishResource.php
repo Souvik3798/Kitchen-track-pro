@@ -7,6 +7,7 @@ use App\Filament\Resources\DishResource\RelationManagers;
 use App\Models\dish;
 use App\Models\Item;
 use Filament\Forms;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -32,6 +33,8 @@ class DishResource extends Resource
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
+                Hidden::make('user_id')
+                    ->default(auth()->id()),
                 Repeater::make('items')
                     ->schema([
                         Select::make('item_id')

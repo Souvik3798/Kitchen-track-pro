@@ -6,6 +6,7 @@ use App\Filament\Resources\ItemResource\Pages;
 use App\Filament\Resources\ItemResource\RelationManagers;
 use App\Models\Item;
 use Filament\Forms;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -32,6 +33,8 @@ class ItemResource extends Resource
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
+                Hidden::make('user_id')
+                    ->default(auth()->id()),
                 TextInput::make('quantity')
                     ->suffix('grams')
                     ->disabled()
