@@ -36,6 +36,6 @@ class inventory extends Model
 
     public function item(): HasMany
     {
-        return $this->hasMany(item::class);
+        return $this->hasMany(Item::class);
     }
 }

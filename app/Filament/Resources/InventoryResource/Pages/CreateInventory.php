@@ -12,13 +12,6 @@ class CreateInventory extends CreateRecord
 {
     protected static string $resource = InventoryResource::class;
 
-    public function mutateFormDataBeforeCreate(array $data): array
-    {
-        $data['user_id'] = auth()->id();
-
-        return $data;
-    }
-
     protected function afterCreate()
     {
         foreach ($this->record->item as $item) {
