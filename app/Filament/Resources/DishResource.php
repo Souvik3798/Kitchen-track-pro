@@ -23,7 +23,7 @@ class DishResource extends Resource
 {
     protected static ?string $model = dish::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-cake';
     protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
