@@ -12,6 +12,13 @@ class CreateSale extends CreateRecord
 {
     protected static string $resource = SaleResource::class;
 
+    public function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['user_id'] = auth()->id();
+
+        return $data;
+    }
+
     protected function afterCreate()
     {
         $sales = $this->record->dish;

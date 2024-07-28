@@ -17,4 +17,11 @@ class CreateDish extends CreateRecord
     {
         return $this->getResource()::getUrl('index');
     }
+
+    public function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['user_id'] = auth()->id();
+
+        return $data;
+    }
 }

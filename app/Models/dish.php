@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -12,12 +13,22 @@ class dish extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'items'
+        'items',
+        'user_id'
     ];
 
     protected $casts = [
         'items' => 'array'
     ];
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope('by_user', function (Builder $builder) {
+            if (auth()->check()) {
+                $builder->where('user_id', auth()->id());
+            }
+        });
+    }
 
 
     public function sale(): BelongsToMany

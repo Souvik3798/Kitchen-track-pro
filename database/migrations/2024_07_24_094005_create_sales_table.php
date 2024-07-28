@@ -18,6 +18,7 @@ return new class extends Migration
             // $table->foreignId(User::class)->constrained()->cascadeOnDelete();
             $table->json('dish');
             $table->string('customer');
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

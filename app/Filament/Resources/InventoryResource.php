@@ -7,6 +7,7 @@ use App\Filament\Resources\InventoryResource\RelationManagers;
 use App\Models\inventory;
 use App\Models\Item;
 use Filament\Forms;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
@@ -38,7 +39,9 @@ class InventoryResource extends Resource
                             ->relationship('item', 'name')
                             ->createOptionForm([
                                 Forms\Components\TextInput::make('name')
-                                    ->required()
+                                    ->required(),
+                                Hidden::make('user_id')
+                                    ->default(auth()->id()),
                             ])
                             ->preload()
                             ->searchable()
