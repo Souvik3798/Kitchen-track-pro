@@ -76,6 +76,7 @@ class InventoryResource extends Resource
                     ->label('Number of Items')
                     ->getStateUsing(fn (Inventory $record) => $record->item_count)
                     ->searchable()
+                    ->suffix(' Nos.')
                     ->sortable(),
                 TextColumn::make('updated_at')
                     ->label('Updated On')
