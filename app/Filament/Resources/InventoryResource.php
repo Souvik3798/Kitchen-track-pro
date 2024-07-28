@@ -80,6 +80,8 @@ class InventoryResource extends Resource
                     ->sortable(),
                 TextColumn::make('updated_at')
                     ->label('Updated On')
+                    ->searchable()
+                    ->sortable()
                     ->dateTime(),
             ])
             ->filters([
