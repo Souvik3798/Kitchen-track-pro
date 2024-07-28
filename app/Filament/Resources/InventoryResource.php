@@ -31,6 +31,8 @@ class InventoryResource extends Resource
                 Forms\Components\TextInput::make('supplier')
                     ->label('Supplier Name')
                     ->required(),
+                Hidden::make('user_id')
+                    ->default(auth()->id()),
                 Repeater::make('item')
                     ->schema([
                         Select::make('item_id')
@@ -46,8 +48,7 @@ class InventoryResource extends Resource
                             ->preload()
                             ->searchable()
                             ->required(),
-                        Hidden::make('user_id')
-                            ->default(auth()->id()),
+
                         Forms\Components\TextInput::make('quantity')
                             ->label('Quantity')
                             ->suffix('grams')
