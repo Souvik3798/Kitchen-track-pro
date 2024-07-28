@@ -30,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogoHeight('3.5rem')
             ->profile()
             ->login()
+            ->spa()
             ->colors([
                 'primary' => Color::Red,
             ])
