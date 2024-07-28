@@ -44,7 +44,7 @@ class DishResource extends Resource
                             ->required(),
                         TextInput::make('quantity')
                             ->required()
-                            ->suffix('grams')
+                            ->suffix('grams/Nos/ml')
                             ->placeholder('2kg = 2000grams')
                             ->label('Quantity')
                             ->numeric()

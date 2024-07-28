@@ -36,7 +36,7 @@ class ItemResource extends Resource
                 Hidden::make('user_id')
                     ->default(auth()->id()),
                 TextInput::make('quantity')
-                    ->suffix('grams')
+                    ->suffix('grams/Nos/ml')
                     ->numeric()
                     ->maxLength(255),
             ]);
@@ -50,7 +50,7 @@ class ItemResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('quantity')
-                    ->suffix(' grams')
+                    ->suffix(' grams/Nos/ml')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('updated_at')

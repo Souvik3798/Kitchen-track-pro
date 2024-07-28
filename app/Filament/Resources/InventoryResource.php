@@ -51,7 +51,7 @@ class InventoryResource extends Resource
 
                         Forms\Components\TextInput::make('quantity')
                             ->label('Quantity')
-                            ->suffix('grams')
+                            ->suffix('grams/Nos/ml')
                             ->placeholder('2kg = 2 x 1000grams = 2000grams')
                             ->numeric()
                             ->required(),
