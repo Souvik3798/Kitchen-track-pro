@@ -82,7 +82,7 @@ class InventoryResource extends Resource
                     ->label('Updated On')
                     ->searchable()
                     ->sortable()
-                    ->dateTime(),
+                    ->dateTime('M j, Y-h:i A'),
             ])->defaultSort('updated_at', 'desc')
             ->filters([
                 //
