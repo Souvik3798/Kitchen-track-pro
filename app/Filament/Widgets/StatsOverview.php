@@ -56,14 +56,14 @@ class StatsOverview extends BaseWidget
     private function getStatsData($modelClass, $currentMonthStart, $sixMonthsAgoStart)
     {
         // Count current month's data and data from the last 6 months
-        $currentCount = $modelClass::where('created_at', '>=', $currentMonthStart)->count();
+        $currentCount = $modelClass::where('updated_at', '>=', $currentMonthStart)->count();
 
         // Retrieve data counts for each of the last 6 months
         $monthlyCounts = [];
         for ($i = 6; $i > 0; $i--) {
             $monthStart = Carbon::now()->subMonths($i)->startOfMonth();
             $monthEnd = Carbon::now()->subMonths($i - 1)->startOfMonth()->subSecond();
-            $monthlyCounts[] = $modelClass::whereBetween('created_at', [$monthStart, $monthEnd])->count();
+            $monthlyCounts[] = $modelClass::whereBetween('updated_at', [$monthStart, $monthEnd])->count();
         }
 
         // Include current month's data in the chart
