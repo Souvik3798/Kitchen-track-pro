@@ -16,6 +16,7 @@ class StatsOverview extends BaseWidget
 {
     protected function getStats(): array
     {
+
         // Define the current month period
         $currentMonthStart = Carbon::now()->startOfMonth(); // Start of current month
         $sixMonthsAgoStart = Carbon::now()->subMonths(6)->startOfMonth(); // Start of 6 months ago
@@ -29,7 +30,8 @@ class StatsOverview extends BaseWidget
         $totalSales = $this->getStatsData(sale::class, $currentMonthStart, $sixMonthsAgoStart);
 
         // Return the stats with appropriate labels, colors, and icons
-        return [
+
+        $stats =  [
             Stat::make('Total Inventories', $totalInventories['current'])
                 ->description($totalInventories['description'])
                 ->descriptionIcon($totalInventories['icon'])
@@ -51,6 +53,8 @@ class StatsOverview extends BaseWidget
                 ->chart($totalSales['chart'])
                 ->color($totalSales['color']),
         ];
+
+        return $stats;
     }
 
     private function getStatsData($modelClass, $currentMonthStart, $sixMonthsAgoStart)
