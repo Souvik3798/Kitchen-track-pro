@@ -47,9 +47,16 @@ class DishResource extends Resource
                             ->suffix('grams/Nos/ml')
                             ->placeholder('2kg = 2000grams')
                             ->label('Quantity')
-                            ->numeric()
+                            ->numeric() // Ensures the input is numeric
+                            ->step(0.01)
                             ->required()
-                            ->numeric(),
+                            ->default(0.00)
+                            ->afterStateUpdated(function ($state, $set) {
+                                // Format the input to ensure it always has a leading zero
+                                if (is_numeric($state)) {
+                                    $set('quantity', number_format((float)$state, 2, '.', ''));
+                                }
+                            }),
                     ])
             ]);
     }

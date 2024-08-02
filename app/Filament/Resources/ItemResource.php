@@ -37,8 +37,15 @@ class ItemResource extends Resource
                     ->default(auth()->id()),
                 TextInput::make('quantity')
                     ->suffix('grams/Nos/ml')
-                    ->numeric()
-                    ->maxLength(255),
+                    ->numeric() // Ensures the input is numeric
+                    ->step(0.01)
+                    ->default(0.00)
+                    ->afterStateUpdated(function ($state, $set) {
+                        // Format the input to ensure it always has a leading zero
+                        if (is_numeric($state)) {
+                            $set('quantity', number_format((float)$state, 2, '.', ''));
+                        }
+                    }),
             ]);
     }
 

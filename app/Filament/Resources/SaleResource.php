@@ -46,8 +46,16 @@ class SaleResource extends Resource
                         TextInput::make('quantity')
                             ->label('Quantity')
                             ->suffix('Nos.')
-                            ->numeric()
-                            ->required(),
+                            ->numeric() // Ensures the input is numeric
+                            ->step(0.01)
+                            ->required()
+                            ->default(0.00)
+                            ->afterStateUpdated(function ($state, $set) {
+                                // Format the input to ensure it always has a leading zero
+                                if (is_numeric($state)) {
+                                    $set('quantity', number_format((float)$state, 2, '.', ''));
+                                }
+                            }),
                     ]),
 
             ]);

@@ -53,8 +53,16 @@ class InventoryResource extends Resource
                             ->label('Quantity')
                             ->suffix('grams/Nos/ml')
                             ->placeholder('2kg = 2 x 1000grams = 2000grams')
-                            ->numeric()
-                            ->required(),
+                            ->numeric() // Ensures the input is numeric
+                            ->step(0.01)
+                            ->required()
+                            ->default(0.00)
+                            ->afterStateUpdated(function ($state, $set) {
+                                // Format the input to ensure it always has a leading zero
+                                if (is_numeric($state)) {
+                                    $set('quantity', number_format((float)$state, 2, '.', ''));
+                                }
+                            }),
                         Forms\Components\TextInput::make('price')
                             ->label('Price')
                             ->numeric()
