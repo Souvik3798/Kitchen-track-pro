@@ -17,6 +17,7 @@ class EditSale extends EditRecord
     protected $previousDishData;
     protected $deletedDishes = [];
 
+
     protected function beforeSave()
     {
         $this->previousDishData = $this->record->dish;
@@ -71,9 +72,7 @@ class EditSale extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Action::make('Delete Sale')
-                ->action(fn () => $this->saledelete($this->record))
-                ->successNotificationTitle('Sale Deleted Successfully')
+            Actions\DeleteAction::make(),
         ];
     }
 
