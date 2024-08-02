@@ -99,8 +99,8 @@ class Margin extends BaseWidget
 
     private function calculateTotal($modelClass, $startDate, $endDate, $relation)
     {
-        $query = $modelClass::where('updated_at', '>=', $startDate)
-            ->where('updated_at', '<=', $endDate);
+        $query = $modelClass::where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate);
 
         $total = 0;
         foreach ($query->get() as $record) {

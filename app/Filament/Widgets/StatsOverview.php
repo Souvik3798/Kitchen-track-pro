@@ -22,12 +22,11 @@ class StatsOverview extends BaseWidget
         $currentMonthStart = Carbon::now()->startOfMonth(); // Start of current month
         $sixMonthsAgoStart = Carbon::now()->subMonths(6)->startOfMonth(); // Start of 6 months ago
 
-
         Log::warning($currentMonthStart . ',' . $sixMonthsAgoStart);
 
         // Retrieve data counts for the current month and the last 6 months
         $totalInventories = $this->getStatsData(inventory::class, $currentMonthStart, $sixMonthsAgoStart);
-        $totalItems = $this->getStatsData(Item::class, $currentMonthStart, $sixMonthsAgoStart);
+        $totalItems = $this->getStatsData(Item::class, $currentMonthStart, $sixMonthsAgoStart, 'updated_at');
         $totalDishes = $this->getStatsData(dish::class, $currentMonthStart, $sixMonthsAgoStart);
         $totalSales = $this->getStatsData(sale::class, $currentMonthStart, $sixMonthsAgoStart);
 
@@ -59,17 +58,17 @@ class StatsOverview extends BaseWidget
         return $stats;
     }
 
-    private function getStatsData($modelClass, $currentMonthStart, $sixMonthsAgoStart)
+    private function getStatsData($modelClass, $currentMonthStart, $sixMonthsAgoStart, $dateColumn = 'created_at')
     {
         // Count current month's data and data from the last 6 months
-        $currentCount = $modelClass::where('updated_at', '>=', $currentMonthStart)->count();
+        $currentCount = $modelClass::where($dateColumn, '>=', $currentMonthStart)->count();
 
         // Retrieve data counts for each of the last 6 months
         $monthlyCounts = [];
         for ($i = 6; $i > 0; $i--) {
             $monthStart = Carbon::now()->subMonths($i)->startOfMonth();
             $monthEnd = Carbon::now()->subMonths($i - 1)->startOfMonth()->subSecond();
-            $monthlyCounts[] = $modelClass::whereBetween('updated_at', [$monthStart, $monthEnd])->count();
+            $monthlyCounts[] = $modelClass::whereBetween($dateColumn, [$monthStart, $monthEnd])->count();
         }
 
         // Include current month's data in the chart
@@ -78,7 +77,7 @@ class StatsOverview extends BaseWidget
         // Calculate the total for the last 6 months
         $previousSixMonthsCount = array_sum(array_slice($monthlyCounts, 0, 6));
 
-        // Debugging: Return both counts for further checking
+        // Return the data for the stats
         return [
             'current' => $currentCount,
             'previous' => $previousSixMonthsCount,

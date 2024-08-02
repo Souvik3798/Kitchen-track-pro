@@ -2,7 +2,6 @@
 
 namespace App\Filament\Pages;
 
-use Carbon\Carbon;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Section;
@@ -18,19 +17,14 @@ class Dashboard extends \Filament\Pages\Dashboard
     {
         return $form->schema([
             Section::make('')->schema([
-                DatePicker::make('startDate')
+                DateTimePicker::make('startDate')
                     ->label('Start Date')
-                    ->default(now()->subMonth()->format('Y-m-d'))
-                    ->required()->afterStateHydrated(function ($state, callable $set) {
-                        $set('startDate', Carbon::parse($state)->format('Y-m-d H:i:s'));
-                    }),
-                DatePicker::make('endDate')
+                    ->default(now()->subMonth())
+                    ->required(),
+                DateTimePicker::make('endDate')
                     ->label('End Date')
-                    ->default(now()->format('Y-m-d'))
-                    ->required()
-                    ->required()->afterStateHydrated(function ($state, callable $set) {
-                        $set('startDate', Carbon::parse($state)->format('Y-m-d H:i:s'));
-                    }),
+                    ->default(now())
+                    ->required(),
             ])->columns(2),
 
         ]);
