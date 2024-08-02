@@ -20,7 +20,6 @@ class Dashboard extends \Filament\Pages\Dashboard
             Section::make('')->schema([
                 DateTimePicker::make('startDate')
                     ->label('Start Date')
-                    ->default(now()->subMonth())
                     ->required()
                     ->afterStateHydrated(function ($state, callable $set) {
                         $date = Carbon::parse($state);
@@ -29,7 +28,6 @@ class Dashboard extends \Filament\Pages\Dashboard
                     }),
                 DateTimePicker::make('endDate')
                     ->label('End Date')
-                    ->default(now())
                     ->required()
                     ->required()
                     ->afterStateHydrated(function ($state, callable $set) {
