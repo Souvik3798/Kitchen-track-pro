@@ -75,9 +75,7 @@ class InventoryResource extends Resource
                 Tables\Columns\TextColumn::make('item_count')
                     ->label('Number of Items')
                     ->getStateUsing(fn (Inventory $record) => $record->item_count)
-                    ->searchable()
-                    ->suffix(' Nos.')
-                    ->sortable(),
+                    ->suffix(' Nos.'),
                 TextColumn::make('updated_at')
                     ->label('Updated On')
                     ->searchable()

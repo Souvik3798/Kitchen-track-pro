@@ -63,8 +63,6 @@ class DishResource extends Resource
                     ->searchable(),
                 TextColumn::make('updated_at')
                     ->label('Updated On')
-                    ->searchable()
-                    ->sortable()
                     ->dateTime('M j, Y-h:i A'),
             ])->defaultSort('updated_at', 'desc')
             ->filters([
