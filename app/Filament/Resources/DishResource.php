@@ -35,6 +35,12 @@ class DishResource extends Resource
                     ->maxLength(255),
                 Hidden::make('user_id')
                     ->default(auth()->id()),
+                TextInput::make('price')
+                    ->label('Price')
+                    ->prefix('₹.')
+                    ->suffix('/-')
+                    ->required()
+                    ->numeric(),
                 Repeater::make('items')
                     ->schema([
                         Select::make('item_id')
@@ -66,6 +72,12 @@ class DishResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('price')
+                    ->label('Cost')
+                    ->prefix('₹.')
+                    ->suffix('/-')
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('updated_at')

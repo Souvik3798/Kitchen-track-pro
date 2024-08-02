@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Log;
 
 class StatsOverview extends BaseWidget
 {
+
     protected function getStats(): array
     {
 
         // Define the current month period
         $currentMonthStart = Carbon::now()->startOfMonth(); // Start of current month
         $sixMonthsAgoStart = Carbon::now()->subMonths(6)->startOfMonth(); // Start of 6 months ago
+
 
         Log::warning($currentMonthStart . ',' . $sixMonthsAgoStart);
 

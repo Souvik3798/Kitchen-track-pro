@@ -12,12 +12,14 @@ use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Log;
 
 class SaleResource extends Resource
 {
@@ -45,17 +47,30 @@ class SaleResource extends Resource
                             ->required(),
                         TextInput::make('quantity')
                             ->label('Quantity')
-                            ->suffix('Nos.')
+                            ->suffix('grams/Nos./ml')
                             ->numeric() // Ensures the input is numeric
                             ->step(0.01)
                             ->required()
                             ->default(0.00)
-                            ->afterStateUpdated(function ($state, $set) {
+                            ->afterStateUpdated(function ($state, $set, Get $get) {
                                 // Format the input to ensure it always has a leading zero
                                 if (is_numeric($state)) {
                                     $set('quantity', number_format((float)$state, 2, '.', ''));
                                 }
+
+                                $dish = dish::findorfail($get('dish_id'));
+                                Log::error($dish);
+                                if ($dish) {
+                                    $price = $dish->price;
+                                    $set('price', number_format($price * $state, 2, '.', ''));
+                                }
                             }),
+                        Forms\Components\TextInput::make('price')
+                            ->label('Price')
+                            ->numeric()
+                            ->prefix('₹.')
+                            ->suffix('/-')
+                            ->default('0'),
                     ]),
 
             ]);
