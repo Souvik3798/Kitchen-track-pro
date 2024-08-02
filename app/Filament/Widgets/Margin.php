@@ -22,6 +22,8 @@ class Margin extends BaseWidget
         $inventoryData = $this->getStatsData(inventory::class, $start, $end, 'item');
         $salesData = $this->getStatsData(sale::class, $start, $end, 'dish');
 
+        // dd($start, $end);
+
         $margin = $salesData['current'] - $inventoryData['current'];
 
         // Get margin data for the last 6 months and current month

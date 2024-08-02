@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use Carbon\Carbon;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Section;
@@ -20,11 +21,22 @@ class Dashboard extends \Filament\Pages\Dashboard
                 DateTimePicker::make('startDate')
                     ->label('Start Date')
                     ->default(now()->subMonth())
-                    ->required(),
+                    ->required()
+                    ->afterStateHydrated(function ($state, callable $set) {
+                        $date = Carbon::parse($state);
+                        $date->setTime(23, 59, 0); // Set time to 11:59 PM
+                        $set('endDate', $date->format('Y-m-d H:i:s'));
+                    }),
                 DateTimePicker::make('endDate')
                     ->label('End Date')
                     ->default(now())
-                    ->required(),
+                    ->required()
+                    ->required()
+                    ->afterStateHydrated(function ($state, callable $set) {
+                        $date = Carbon::parse($state);
+                        $date->setTime(23, 59, 0); // Set time to 11:59 PM
+                        $set('endDate', $date->format('Y-m-d H:i:s'));
+                    }),
             ])->columns(2),
 
         ]);
