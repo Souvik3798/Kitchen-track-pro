@@ -16,7 +16,7 @@ class EditInventory extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make()->action('deleteItem'),
+            Actions\DeleteAction::make(),
         ];
     }
 
