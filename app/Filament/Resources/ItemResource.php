@@ -39,7 +39,7 @@ class ItemResource extends Resource
                     ->suffix('grams/Nos/ml')
                     ->numeric() // Ensures the input is numeric
                     ->step(0.01)
-                    ->default(0.00)
+                    ->default('0.00')
                     ->afterStateUpdated(function ($state, $set) {
                         // Format the input to ensure it always has a leading zero
                         if (is_numeric($state)) {

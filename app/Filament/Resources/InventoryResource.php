@@ -44,6 +44,8 @@ class InventoryResource extends Resource
                                     ->required(),
                                 Hidden::make('user_id')
                                     ->default(auth()->id()),
+                                Hidden::make('quantity')
+                                    ->default('0.00'),
                             ])
                             ->preload()
                             ->searchable()
