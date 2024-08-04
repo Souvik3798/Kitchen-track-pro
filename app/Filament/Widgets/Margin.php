@@ -117,18 +117,32 @@ class Margin extends BaseWidget
     private function getComparisonDescription($currentValue, $previousValue)
     {
         if ($previousValue == 0) {
-            return $currentValue > 0
-                ? '100% increase '
-                : 'No change';
+            if ($currentValue == 0) {
+                return 'No change';
+            } else {
+                return $currentValue > 0
+                    ? '100% increase'
+                    : '100% decrease';
+            }
         } else {
             $difference = $currentValue - $previousValue;
-            $percentageChange = ($difference / $previousValue) * 100;
+            $percentageChange = ($difference / abs($previousValue)) * 100;
 
-            return $percentageChange > 0
-                ? number_format($percentageChange, 2) . '% increase'
-                : number_format(abs($percentageChange), 2) . '% decrease';
+            if ($currentValue < 0 && $previousValue < 0) {
+                return $percentageChange < 0
+                    ? number_format(abs($percentageChange), 2) . '% decrease'
+                    : number_format($percentageChange, 2) . '% increase';
+            } else {
+                return $percentageChange > 0
+                    ? number_format($percentageChange, 2) . '% increase'
+                    : number_format(abs($percentageChange), 2) . '% decrease';
+            }
         }
     }
+
+
+
+
 
     private function getComparisonIcon($currentValue, $previousValue)
     {
