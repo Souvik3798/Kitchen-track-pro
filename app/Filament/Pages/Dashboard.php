@@ -21,14 +21,15 @@ class Dashboard extends \Filament\Pages\Dashboard
                 DateTimePicker::make('startDate')
                     ->label('Start Date')
                     ->required()
-                    ->afterStateHydrated(function ($state, callable $set) {
+                    ->reactive() // Make it reactive to changes
+                    ->afterStateUpdated(function ($state, callable $set) {
                         $date = Carbon::parse($state);
                         $date->setTime(23, 59, 0); // Set time to 11:59 PM
                         $set('endDate', $date->format('Y-m-d H:i:s'));
                     }),
                 DateTimePicker::make('endDate')
                     ->label('End Date')
-                    ->required()
+                    ->default(now())
                     ->required()
                     ->afterStateHydrated(function ($state, callable $set) {
                         $date = Carbon::parse($state);
@@ -36,7 +37,6 @@ class Dashboard extends \Filament\Pages\Dashboard
                         $set('endDate', $date->format('Y-m-d H:i:s'));
                     }),
             ])->columns(2),
-
         ]);
     }
 }
