@@ -35,12 +35,6 @@ class DishResource extends Resource
                     ->maxLength(255),
                 Hidden::make('user_id')
                     ->default(auth()->id()),
-                TextInput::make('price')
-                    ->label('Price')
-                    ->prefix('₹.')
-                    ->suffix('/-')
-                    ->required()
-                    ->numeric(),
                 Repeater::make('items')
                     ->schema([
                         Select::make('item_id')
