@@ -18,6 +18,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class DishResource extends Resource
 {
@@ -34,7 +35,13 @@ class DishResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Hidden::make('user_id')
-                    ->default(auth()->id()),
+                    ->default(Auth::id()),
+                TextInput::make('price')
+                    ->required()
+                    ->default(0)
+                    ->prefix('₹.')
+                    ->suffix('/-')
+                    ->numeric(),
                 Repeater::make('items')
                     ->schema([
                         Select::make('item_id')
